@@ -1,12 +1,16 @@
+
+import './config.mjs'
 import express from 'express';
 import mongoose from 'mongoose';
 import Movie from './movie.js';
-
+import 'dotenv/config'
 const app = express();
 app.use(express.urlencoded({ extended: true }));
 
+// PORT = process.env.PORT
+// DSN= process.env.DSN
 // Connect to MongoDB
-await mongoose.connect('mongodb://127.0.0.1:27017/moviemate');
+await mongoose.connect(process.env.DSN);
 
 // Serve the form page
 app.get('/', (req, res) => {
@@ -33,6 +37,6 @@ app.post('/add', async (req, res) => {
 });
 
 // Start the server
-app.listen(3000, () => {
+app.listen(process.env.PORT, () => {
   console.log('Server running at http://localhost:3000');
 });

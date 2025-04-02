@@ -54,7 +54,11 @@ Review Schema
 }
 ```
 
+<<<<<<< HEAD
 ## [Link to Commented First Draft Schema](db.mjs) 
+=======
+## [Link to Commented First Draft Schema](./db.mjs)
+>>>>>>> d666e40 (Milestone 2:)
 
 ## Wireframes
 
