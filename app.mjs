@@ -13,7 +13,7 @@ app.get('/', (req, res) => {
   res.sendFile('views/index.html', { root: '.' });
 });
 
-// ✅ Handle form submission
+
 app.post('/add', async (req, res) => {
   const { title, genre, year } = req.body;
   try {
