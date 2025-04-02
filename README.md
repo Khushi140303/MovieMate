@@ -56,8 +56,6 @@ Review Schema
 
 ## [Link to Commented First Draft Schema](db.mjs) 
 
-(__TODO__: create a first draft of your Schemas in db.mjs and link to it)
-
 ## Wireframes
 
 The following wireframes illustrate the key pages of MovieMate, showing the layout of major elements such as **search, watchlist, review submission, and movie recommendations**.
