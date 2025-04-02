@@ -1,0 +1,23 @@
+{
+  "name": "final-project-khushi140303",
+  "version": "1.0.0",
+  "description": "## Overview",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nyu-csci-ua-0467-001-002-spring-2025/final-project-Khushi140303.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nyu-csci-ua-0467-001-002-spring-2025/final-project-Khushi140303/issues"
+  },
+  "homepage": "https://github.com/nyu-csci-ua-0467-001-002-spring-2025/final-project-Khushi140303#readme",
+  "dependencies": {
+    "express": "^4.21.2",
+    "mongoose": "^8.12.1"
+  }
+}

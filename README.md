@@ -1,54 +1,58 @@
-[![Open in Codespaces](https://classroom.github.com/assets/launch-codespace-2972f46106e565e64193e422d61a12cf1da4916b45550586e14ef0a7c637dd04.svg)](https://classroom.github.com/open-in-codespaces?assignment_repo_id=18983278)
-The content below is an example project proposal / requirements document. Replace the text below the lines marked "__TODO__" with details specific to your project. Remove the "TODO" lines.
-
-(__TODO__: your project name)
-
-# Shoppy Shoperson 
+# MovieMate
 
 ## Overview
 
-(__TODO__: a brief one or two paragraph, high-level description of your project)
+MovieMate is a web application that allows users to track and review movies they’ve watched. Users can add movies to their watchlist and receive personalized recommendations based on their viewing history.
 
-Remembering what to buy at the grocery store is waaaaay too difficult. Also, shopping for groceries when you're hungry leads to regrettable purchases. Sooo... that's where Shoppy Shoperson comes in!
+Users can:
+- Add movies to a **watchlist**.
+- Submit reviews with **ratings and comments**.
+- View movie details, including **aggregated ratings and reviews**.
+- Get **personalized recommendations** based on their watchlist.
 
-Shoppy Shoperson is a web app that will allow users to keep track of multiple grocery lists. Users can register and login. Once they're logged in, they can create or view their grocery list. For every list that they have, they can add items to the list or cross off items.
+---
+
 
 
 ## Data Model
 
-(__TODO__: a description of your application's data and their relationships to each other) 
+The application will store **Users, Movies, and Reviews**.
 
-The application will store Users, Lists and Items
+- Users can maintain a **watchlist** (via references).
+- Each movie can have **multiple reviews** (via references).
+- Reviews will store **ratings and user comments**.
 
-* users can have multiple lists (via references)
-* each list can have multiple items (by embedding)
+### **Sample Documents**
 
-(__TODO__: sample documents)
-
-An Example User:
-
-```javascript
+#### **User Schema**
+```
 {
-  username: "shannonshopper",
-  hash: // a password hash,
-  lists: // an array of references to List documents
+  username: "moviefan23",
+  email: "user@email.com",
+  password: "hashed_password",
+  watchlist: ["movie_id_1", "movie_id_2"],
 }
 ```
 
-An Example List with Embedded Items:
-
-```javascript
+Movie Schema
+```
 {
-  user: // a reference to a User object
-  name: "Breakfast foods",
-  items: [
-    { name: "pancakes", quantity: "9876", checked: false},
-    { name: "ramen", quantity: "2", checked: true},
-  ],
-  createdAt: // timestamp
+  title: "Inception",
+  genre: ["Sci-Fi", "Thriller"],
+  year: 2010,
+  reviews: ["review_id_1", "review_id_2"]
 }
 ```
-
+Review Schema
+```
+{
+  user: "user_id",
+  movie: "movie_id",
+  rating: 4.5,
+  comment: "Amazing movie with mind-blowing visuals!",
+  timestamp: "2025-03-20T12:00:00Z"
+}
+```
 
 ## [Link to Commented First Draft Schema](db.mjs) 
 
@@ -56,63 +60,84 @@ An Example List with Embedded Items:
 
 ## Wireframes
 
-(__TODO__: wireframes for all of the pages on your site; they can be as simple as photos of drawings or you can use a tool like Balsamiq, Omnigraffle, etc.)
+The following wireframes illustrate the key pages of MovieMate, showing the layout of major elements such as **search, watchlist, review submission, and movie recommendations**.
 
-/list/create - page for creating a new shopping list
+![Wireframe](assets/wire_frame.png)
 
-![list create](documentation/list-create.png)
+📍 **View the full wireframes here:**  
+👉 [Click to view Wireframes on Canva](https://www.canva.com/design/DAGiUhEPfIU/OSabKO46q5uX66Lo5OgUHA/edit)
 
-/list - page for showing all shopping lists
-
-![list](documentation/list.png)
-
-/list/slug - page for showing specific shopping list
-
-![list](documentation/list-slug.png)
 
 ## Site map
 
-(__TODO__: draw out a site map that shows how pages are related to each other)
+The following is the navigation flow of the MovieMate web application:
 
-Here's a [complex example from wikipedia](https://upload.wikimedia.org/wikipedia/commons/2/20/Sitemap_google.jpg), but you can create one without the screenshots, drop shadows, etc. ... just names of pages and where they flow to.
+![Site Map](assets/Site_map.png)
+
+📍 **View the full site map here:**  
+👉 [Click to view the Site Map on Canva](https://www.canva.com/design/DAGiUeR7b58/0etIr9gKU9KshS5yhgeQuw/view?utm_content=DAGiUeR7b58&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h1307bcc5e2)
 
 ## User Stories or Use Cases
 
-(__TODO__: write out how your application will be used through [user stories](http://en.wikipedia.org/wiki/User_story#Format) and / or [use cases](https://en.wikipedia.org/wiki/Use_case))
+- As a **non-registered user**, I can **register an account**.
+- As a **registered user**, I can **log in**.
+- As a **user**, I can **search for a movie**.
+- As a **user**, I can **add a movie to my watchlist**.
+- As a **user**, I can **view my watchlist**.
+- As a **user**, I can **submit a review and rating** for a movie.
+- As a **user**, I can **view movie details**, including aggregated ratings.
+- As a **user**, I can **receive movie recommendations** based on my watch history.
 
-1. as non-registered user, I can register a new account with the site
-2. as a user, I can log in to the site
-3. as a user, I can create a new grocery list
-4. as a user, I can view all of the grocery lists I've created in a single list
-5. as a user, I can add items to an existing grocery list
-6. as a user, I can cross off items in an existing grocery list
-
+---
 ## Research Topics
 
-(__TODO__: the research topics that you're planning on working on along with their point values... and the total points of research topics listed)
+For this project, I am researching and implementing **10 points worth of topics**:
 
-* (5 points) Integrate user authentication
-    * I'm going to be using passport for user authentication
-    * And account has been made for testing; I'll email you the password
-    * see <code>cs.nyu.edu/~jversoza/ait-final/register</code> for register page
-    * see <code>cs.nyu.edu/~jversoza/ait-final/login</code> for login page
-* (4 points) Perform client side form validation using a JavaScript library
-    * see <code>cs.nyu.edu/~jversoza/ait-final/my-form</code>
-    * if you put in a number that's greater than 5, an error message will appear in the dom
-* (5 points) vue.js
-    * used vue.js as the frontend framework; it's a challenging library to learn, so I've assigned it 5 points
+### **(5 points) User Authentication**
+- **Library Used**: Passport.js
+- **Why?** Enables **secure user login & authentication**.
+- **Implementation Plan**:
+  - Users can **register and log in**.
+  - Passwords will be **hashed** before storing in the database.
+  - Pages requiring authentication will be **protected**.
 
-10 points total out of 8 required points (___TODO__: addtional points will __not__ count for extra credit)
+### **(4 points) Client-Side Form Validation**
+- **Why?** Ensures user inputs are **validated before submission**.
+- **Implementation Plan**:
+  - Prevents submission of **empty fields**.
+  - Displays **error messages** for invalid inputs.
+  - Example: Users **cannot submit a review without a rating**.
 
+### **(3 points) Use Axios for Fetching Movie Data**
+- **Library Used**: Axios
+- **Why?** Simplifies API calls to fetch **real movie details** from OMDb API.
+- **Implementation Plan**:
+  - Use Axios to **fetch movie details** by title.
+  - Create an API function to request data from OMDb.
+  - Return JSON data to the frontend for **dynamic movie recommendations**.
+
+---
 
 ## [Link to Initial Main Project File](app.mjs) 
 
-(__TODO__: create a skeleton Express application with a package.json, app.mjs, views folder, etc. ... and link to your initial app.mjs)
+[Main Page](./views/index.html)
+- This project is set up using **Express.js**.
+- Includes **package.json, app.mjs, models, and routes folders**.
 
+---
 ## Annotations / References Used
 
-(__TODO__: list any tutorials/references/etc. that you've based your code off of)
+Below are the key references used in building MovieMate:
 
-1. [passport.js authentication docs](http://passportjs.org/docs) - (add link to source code that was based on this)
-2. [tutorial on vue.js](https://vuejs.org/v2/guide/) - (add link to source code that was based on this)
+1. [Passport.js Documentation](http://passportjs.org/docs) - Used for user authentication.
+2. [Express.js Documentation](https://expressjs.com/) - Used for setting up the backend and handling routes.
+3. [Mongoose Documentation](https://mongoosejs.com/) - Used for defining and interacting with MongoDB database schemas.
+4. [OMDb API](https://www.omdbapi.com/) - Used for fetching movie metadata for recommendations and search functionality.
+5. [Axios Documentation](https://axios-http.com/docs/intro) - Used for making API requests to fetch movie data dynamically.
+6. [ESLint Documentation](https://eslint.org/docs/latest/) - Used for code linting and ensuring clean JavaScript code.
 
+
+
+
+
+---
