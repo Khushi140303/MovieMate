@@ -1,3 +1,8 @@
 {
-    "updateContentCommand": "npm install"
+    "updateContentCommand": "npm install",
+    "remoteEnv": {
+        "PORT": "${PORT}",
+        "DSN": "${DSN}"
+      }
+    
 }

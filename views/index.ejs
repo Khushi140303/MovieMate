@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MovieMate</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 40px;
+      margin-bottom: 30px;
+    }
+
+    input[type="text"], input[type="number"], button {
+      font-size: 18px;
+      padding: 10px;
+      margin: 5px;
+      width: 200px;
+    }
+
+    button {
+      width: auto;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    .movie {
+      margin-top: 20px;
+    }
+
+    #errorMsg {
+      color: red;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Add a Movie</h1>
+
+  <form id="movieForm" action="/add" method="POST">
+    <input id="title" type="text" name="title" placeholder="Movie title" required />
+    <input id="genre" type="text" name="genre" placeholder="Genre" required />
+    <input id="year" type="number" name="year" placeholder="Year" required />
+    <button type="submit">Add Movie</button>
+    <p id="errorMsg"></p>
+  </form>
+
+  <hr>
+
+  <h2>Your Movies</h2>
+
+  <% if (movies.length === 0) { %>
+    <p>No movies added yet.</p>
+  <% } else { %>
+    <ul>
+      <% movies.forEach(movie => { %>
+        <li class="movie">
+          <strong><%= movie.title %></strong> (<%= movie.year %>) - <%= movie.genre %>
+          <form method="POST" action="/delete-movie" style="display:inline;">
+            <input type="hidden" name="movieId" value="<%= movie._id %>">
+            <button type="submit">🗑️ Delete</button>
+          </form>
+        </li>
+      <% }) %>
+    </ul>
+  <% } %>
+
+  <!-- ✅ Client-side validation script -->
+  <script>
+    const form = document.getElementById('movieForm');
+    const errorMsg = document.getElementById('errorMsg');
+
+    form.addEventListener('submit', function (e) {
+      const title = document.getElementById('title').value.trim();
+      const genre = document.getElementById('genre').value.trim();
+      const year = document.getElementById('year').value.trim();
+
+      if (!title || !genre || !year) {
+        e.preventDefault();
+        errorMsg.textContent = "All fields are required!";
+      } else if (isNaN(year) || year < 1888 || year > new Date().getFullYear()) {
+        e.preventDefault();
+        errorMsg.textContent = "Please enter a valid year.";
+      } else {
+        errorMsg.textContent = "";
+      }
+    });
+    //THE DATES is getting a validation check basically years before 1888 is invalid and after current year as well. 
+    //no letters, negative numbers are accepted following the client side validation research topic
+    
+  </script>
+</body>
+</html>
