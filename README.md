@@ -118,7 +118,7 @@ For this project, I am researching and implementing **10 points worth of topics*
 
 ## [Link to Initial Main Project File](app.mjs) 
 
-[Main Page](./views/index.html)
+[Main Page](./views/index.ejs)
 - This project is set up using **Express.js**.
 - Includes **package.json, app.mjs, models, and routes folders**.
 
