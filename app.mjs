@@ -1,16 +1,37 @@
 import './config.mjs'
 import express from 'express';
 import mongoose from 'mongoose';
+import session from 'express-session';
+import passport from 'passport';
+import { initialize } from './auth/passport-config.js'; 
+import authRoutes from './routes/auth.js'; 
+
 import Movie from './movie.js';
 import 'dotenv/config'
+import reviewRoutes from './routes/reviews.js';
+
+
 
 const app = express();
 app.use(express.urlencoded({ extended: true }));
+
+// ✅ NEW: initialize passport + session middleware
+initialize(passport);
+app.use(session({
+  secret: 'supersecret',
+  resave: false,
+  saveUninitialized: false,
+}));
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Setup view engine BEFORE routes
 app.set('view engine', 'ejs');
 app.set('views', './views');
 
+// ✅ NEW: Use auth routes
+app.use('/auth', authRoutes);
+app.use('/reviews', reviewRoutes);
 // Connect to MongoDB
 await mongoose.connect(process.env.DSN);
 

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Submit Review</title>
+</head>
+<body>
+  <h1>Submit a Review</h1>
+  <form action="/reviews" method="POST">
+    <label for="movieId">Movie ID:</label>
+    <input type="text" name="movieId" id="movieId" required />
+
+    <label for="rating">Rating (1–5):</label>
+    <input type="number" name="rating" id="rating" min="1" max="5" required />
+
+    <label for="comment">Comment:</label>
+    <textarea name="comment" id="comment"></textarea>
+
+    <button type="submit">Submit</button>
+  </form>
+</body>
+</html>

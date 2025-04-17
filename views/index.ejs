@@ -40,9 +40,26 @@
       color: red;
       margin-top: 10px;
     }
+
+    .auth-links {
+      margin-bottom: 20px;
+    }
   </style>
 </head>
 <body>
+  <!-- ✅ LOGIN/LOGOUT SECTION -->
+  <div class="auth-links">
+    <% if (user) { %>
+      <p>Welcome, <%= user.username %>!</p>
+      <form action="/auth/logout" method="POST">
+        <button type="submit">Logout</button>
+      </form>
+    <% } else { %>
+      <a href="/auth/login">Login</a> |
+      <a href="/auth/register">Register</a>
+    <% } %>
+  </div>
+
   <h1>Add a Movie</h1>
 
   <form id="movieForm" action="/add" method="POST">
@@ -73,7 +90,15 @@
     </ul>
   <% } %>
 
-  <!-- ✅ Client-side validation script -->
+  <!-- ✅ CONDITIONAL REVIEW LINK -->
+  <% if (user) { %>
+    <hr />
+    <a href="/reviews">
+      <button>Submit a Review</button>
+    </a>
+  <% } %>
+
+  <!-- ✅ Client-side validation -->
   <script>
     const form = document.getElementById('movieForm');
     const errorMsg = document.getElementById('errorMsg');
@@ -93,9 +118,6 @@
         errorMsg.textContent = "";
       }
     });
-    //THE DATES is getting a validation check basically years before 1888 is invalid and after current year as well. 
-    //no letters, negative numbers are accepted following the client side validation research topic
-    
   </script>
 </body>
 </html>
