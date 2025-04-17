@@ -3,12 +3,11 @@ import express from 'express';
 import mongoose from 'mongoose';
 import session from 'express-session';
 import passport from 'passport';
-import { initialize } from './auth/passport-config.js'; 
+import { initialize } from './routes/passport-config.js';
 import authRoutes from './routes/auth.js'; 
-
 import Movie from './movie.js';
 import 'dotenv/config'
-import reviewRoutes from './routes/reviews.js';
+import reviewRoutes from './routes/reviews.js'; 
 
 
 
@@ -24,6 +23,12 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
+
+// ✅ Expose user to all views
+app.use((req, res, next) => {
+  res.locals.user = req.user;
+  next();
+});
 
 // Setup view engine BEFORE routes
 app.set('view engine', 'ejs');
@@ -62,6 +67,8 @@ app.post('/delete-movie', async (req, res) => {
 });
 
 // Start the server
-app.listen(process.env.PORT, () => {
-  console.log(`Server running at http://localhost:${process.env.PORT}`);
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+  console.log(`Server running at http://localhost:${PORT}`);
 });

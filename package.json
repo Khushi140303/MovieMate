@@ -17,11 +17,15 @@
   },
   "homepage": "https://github.com/nyu-csci-ua-0467-001-002-spring-2025/final-project-Khushi140303#readme",
   "dependencies": {
-    "dotenv": "^16.4.7",
+    "bcrypt": "^5.1.1",
+    "dotenv": "^16.5.0",
     "ejs": "^3.1.10",
     "express": "^4.21.2",
+    "express-session": "^1.18.1",
     "live-server": "^1.2.2",
     "mongodb": "^6.15.0",
-    "mongoose": "^8.12.1"
+    "mongoose": "^8.12.1",
+    "passport": "^0.7.0",
+    "passport-local": "^1.0.0"
   }
 }

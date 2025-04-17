@@ -1,35 +1,39 @@
 import express from "express";
-import Review from "../models/review.js"; // or "../review.js" if not moved yet
+import Review from "../review.js";
+import Movie  from "../movie.js";    // ← import your Movie model
 
 const router = express.Router();
 
-// ✅ Auth guard
 function isAuthenticated(req, res, next) {
   if (req.isAuthenticated()) return next();
-  res.redirect("/auth/login");
+  return res.redirect("/auth/login");
 }
 
-// ✅ GET - Show Review Form (only for logged-in users)
-router.get("/", isAuthenticated, (req, res) => {
-  res.render("review");
+// GET /reviews — fetch movies and render the form
+router.get("/", isAuthenticated, async (req, res) => {
+  try {
+    const movies = await Movie.find({});
+    res.render("review", { movies });    // ← pass movies into EJS
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Unable to load review form");
+  }
 });
 
-// ✅ POST - Submit Review (only for logged-in users)
+// POST /reviews — unchanged
 router.post("/", isAuthenticated, async (req, res) => {
   const { movieId, rating, comment } = req.body;
-
   try {
     const review = new Review({
-      user: req.user._id, // grab user from session
+      user: req.user._id,
       movie: movieId,
       rating,
       comment,
     });
-
     await review.save();
-    res.send("Thank you for your review!"); // or redirect
+    res.send("Thank you for your review!");
   } catch (error) {
-    console.error(error);
+    console.error("Review save error:", error);
     res.status(500).send("Error submitting review.");
   }
 });
