@@ -30,11 +30,10 @@ Requires authentication.
 ---
 
 ## URL(s) to GitHub Commits Showing Research Progress
-- [Added Passport.js user authentication (registration, login, logout)](https://github.com/nyu-csci-ua-0467-001-002-spring-2025/final-project-deployment-Khushi140303/commit/COMMIT_HASH_AUTH)  
-- [Client‑side validation for Add Movie form](https://github.com/nyu-csci-ua-0467-001-002-spring-2025/final-project-deployment-Khushi140303/commit/COMMIT_HASH_VALIDATION)  
-- [Second form: review schema, route, and EJS UI](https://github.com/nyu-csci-ua-0467-001-002-spring-2025/final-project-deployment-Khushi140303/commit/COMMIT_HASH_REVIEWS)  
+- [Added Passport.js user authentication (registration, login, logout)](https://github.com/nyu-csci-ua-0467-001-002-spring-2025/final-project-deployment-Khushi140303/commit/283738f)
+- [Client‑side validation for Add Movie form](https://github.com/nyu-csci-ua-0467-001-002-spring-2025/final-project-deployment-Khushi140303/commit/e5e528c)
+- [Second form: review schema, route, and EJS UI](https://github.com/nyu-csci-ua-0467-001-002-spring-2025/final-project-deployment-Khushi140303/commit/8eba71f)
 
-*(Replace `COMMIT_HASH_…` with your actual commit IDs.)*
 
 ---
 
