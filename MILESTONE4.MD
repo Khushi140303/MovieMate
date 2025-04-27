@@ -47,11 +47,11 @@ Add movies to your watchlist from the home page after login. View full watchlist
 
 First link to github line number(s) for constructor, HOF, etc.
 ---
-https://github.com/nyu-csci-ua-0467-001-002-spring-2025/final-project-deployment-Khushi140303/blob/main/app.mjs#L103
+https://github.com/nyu-csci-ua-0467-001-002-spring-2025/final-project-deployment-Khushi140303/blob/master/app.mjs#L103
 
 Second link to github line number(s) for constructor, HOF, etc.
 ---
-https://github.com/nyu-csci-ua-0467-001-002-spring-2025/final-project-deployment-Khushi140303/blob/main/app.mjs#L79
+https://github.com/nyu-csci-ua-0467-001-002-spring-2025/final-project-deployment-Khushi140303/blob/master/app.mjs#L214
 
 Short description for links above
 ---
@@ -60,9 +60,9 @@ Short description for links above
 
 Link to github line number(s) for schemas (db.js or models folder)
 ---
-- User Schema: https://github.com/nyu-csci-ua-0467-001-002-spring-2025/final-project-deployment-Khushi140303/blob/main/user.js
-- Movie Schema: https://github.com/nyu-csci-ua-0467-001-002-spring-2025/final-project-deployment-Khushi140303/blob/main/movie.js
-- Review Schema: https://github.com/nyu-csci-ua-0467-001-002-spring-2025/final-project-deployment-Khushi140303/blob/main/review.js
+- User Schema: https://github.com/nyu-csci-ua-0467-001-002-spring-2025/final-project-deployment-Khushi140303/blob/master/user.js
+- Movie Schema: https://github.com/nyu-csci-ua-0467-001-002-spring-2025/final-project-deployment-Khushi140303/blob/master/movie.js
+- Review Schema: https://github.com/nyu-csci-ua-0467-001-002-spring-2025/final-project-deployment-Khushi140303/blob/master/review.js
 
 Description of research topics above with points
 ---
@@ -73,10 +73,10 @@ Description of research topics above with points
 
 Links to github line number(s) for research topics described above
 ---
-- Passport.js authentication: https://github.com/nyu-csci-ua-0467-001-002-spring-2025/final-project-deployment-Khushi140303/blob/main/routes/auth.js
-- OMDb API fetching with Axios: https://github.com/nyu-csci-ua-0467-001-002-spring-2025/final-project-deployment-Khushi140303/blob/main/utils/omdb.js
-- TailwindCSS integration: https://github.com/nyu-csci-ua-0467-001-002-spring-2025/final-project-deployment-Khushi140303/tree/main/views
-- Configuration management with `config` module: https://github.com/nyu-csci-ua-0467-001-002-spring-2025/final-project-deployment-Khushi140303/blob/main/app.mjs#L22
+- Passport.js authentication: https://github.com/nyu-csci-ua-0467-001-002-spring-2025/final-project-deployment-Khushi140303/blob/master/routes/auth.js
+- OMDb API fetching with Axios: https://github.com/nyu-csci-ua-0467-001-002-spring-2025/final-project-deployment-Khushi140303/blob/master/utils/omdb.js
+- TailwindCSS integration: https://github.com/nyu-csci-ua-0467-001-002-spring-2025/final-project-deployment-Khushi140303/tree/master/views
+- Configuration management with `config` module: https://github.com/nyu-csci-ua-0467-001-002-spring-2025/final-project-deployment-Khushi140303/blob/master/app.mjs#L22
 
 Optional project notes 
 ---
