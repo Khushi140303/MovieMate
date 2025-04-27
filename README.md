@@ -8,7 +8,6 @@ Users can:
 - Add movies to a **watchlist**.
 - Submit reviews with **ratings and comments**.
 - View movie details, including **aggregated ratings and reviews**.
-- Get **personalized recommendations** based on their watchlist.
 
 ---
 
