@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title><%= pageTitle %></title>
+  <!-- TailwindCSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 min-h-screen flex flex-col items-center justify-center p-6">
+
+  <h1 class="text-4xl font-bold mb-8 text-center"><%= pageTitle %></h1>
+
+  <% if (movies.length === 0) { %>
+    <p class="text-gray-500 text-lg">No movies in your watchlist yet.</p>
+  <% } else { %>
+    <ul class="space-y-4 mb-8 w-full max-w-2xl">
+      <% movies.forEach(movie => { %>
+        <li class="bg-white p-4 rounded shadow flex flex-col sm:flex-row justify-between items-center">
+          <div>
+            <strong><%= movie.title %></strong> (<%= movie.year %>) - <%= movie.genre %>
+          </div>
+        </li>
+      <% }) %>
+    </ul>
+  <% } %>
+
+  <a href="/" class="mt-6">
+    <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded">
+      🏠 Back to Home
+    </button>
+  </a>
+
+</body>
+</html>

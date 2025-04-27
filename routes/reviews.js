@@ -13,7 +13,7 @@ function isAuthenticated(req, res, next) {
 router.get("/", isAuthenticated, async (req, res) => {
   try {
     const movies = await Movie.find({});
-    res.render("review", { movies });    // ← pass movies into EJS
+    res.render("review", { movies, errorMsg: null }); // ✅ now safe to use in EJS
   } catch (err) {
     console.error(err);
     res.status(500).send("Unable to load review form");
@@ -31,7 +31,7 @@ router.post("/", isAuthenticated, async (req, res) => {
       comment,
     });
     await review.save();
-    res.send("Thank you for your review!");
+    res.render("review-success");
   } catch (error) {
     console.error("Review save error:", error);
     res.status(500).send("Error submitting review.");

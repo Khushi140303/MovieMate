@@ -1,8 +1,8 @@
 {
-    "updateContentCommand": "npm install",
-    "remoteEnv": {
-        "PORT": "${PORT}",
-        "DSN": "${DSN}"
-      }
-    
+  "updateContentCommand": "npm install",
+  "postStartCommand": "npx --yes pm2 start app.js ",
+  "remoteEnv": {
+     "PORT": "${PORT}",
+     "DSN": "${DSN}"
+  }
 }

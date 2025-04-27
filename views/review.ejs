@@ -1,46 +1,67 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <title>Submit Review</title>
-  <style>
-    body { font-family: sans-serif; padding: 20px; }
-    label, select, input, textarea, button { display: block; margin: 10px 0; }
-    button { background-color: #4CAF50; color: white; border: none; padding: 8px 16px; cursor: pointer; }
-    button:hover { background-color: #45a049; }
-  </style>
+  <!-- TailwindCSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
-  <h1>Submit a Review</h1>
+<body class="bg-gray-50 flex flex-col items-center justify-center min-h-screen p-6">
 
-  <form action="/reviews" method="POST">
+  <h1 class="text-4xl font-bold mb-8">✍️ Submit a Review</h1>
+
+  <% if (errorMsg) { %>
+    <p id="errorMsg" class="text-red-500 mb-4"><%= errorMsg %></p>
+  <% } %>
+
+  <form action="/reviews" method="POST" class="flex flex-col space-y-4 bg-white p-8 rounded shadow-lg w-full max-w-md">
+
     <!-- MOVIE DROPDOWN -->
-    <label for="movieId">Choose Movie:</label>
-    <select id="movieId" name="movieId" required>
-      <% movies.forEach(movie => { %>
-        <option value="<%= movie._id %>">
-          <%= movie.title %> (<%= movie.year %>)
-        </option>
-      <% }) %>
-    </select>
+    <div class="flex flex-col">
+      <label for="movieId" class="mb-1 font-semibold">Choose Movie:</label>
+      <select id="movieId" name="movieId" required class="border border-gray-300 p-2 rounded">
+        <% movies.forEach(movie => { %>
+          <option value="<%= movie._id %>">
+            <%= movie.title %> (<%= movie.year %>)
+          </option>
+        <% }) %>
+      </select>
+    </div>
 
     <!-- RATING -->
-    <label for="rating">Rating (1–5):</label>
-    <input
-      type="number"
-      id="rating"
-      name="rating"
-      min="1"
-      max="5"
-      required
-    />
+    <div class="flex flex-col">
+      <label for="rating" class="mb-1 font-semibold">Rating (1–5):</label>
+      <input
+        type="number"
+        id="rating"
+        name="rating"
+        min="1"
+        max="5"
+        required
+        class="border border-gray-300 p-2 rounded"
+      />
+    </div>
 
     <!-- COMMENT -->
-    <label for="comment">Comment:</label>
-    <textarea id="comment" name="comment"></textarea>
+    <div class="flex flex-col">
+      <label for="comment" class="mb-1 font-semibold">Comment:</label>
+      <textarea id="comment" name="comment" class="border border-gray-300 p-2 rounded" rows="4"></textarea>
+    </div>
 
-    <!-- SUBMIT -->
-    <button type="submit">Submit Review</button>
+    <!-- SUBMIT BUTTON -->
+    <button type="submit" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded">
+      📤 Submit Review
+    </button>
   </form>
+
+  <!-- Back to Home -->
+  <div class="mt-6">
+    <a href="/">
+      <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded">
+        🏠 Back to Home
+      </button>
+    </a>
+  </div>
+
 </body>
 </html>

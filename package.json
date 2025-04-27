@@ -1,6 +1,7 @@
 {
   "name": "final-project-khushi140303",
   "version": "1.0.0",
+  "type": "module",
   "description": "## Overview",
   "main": "index.js",
   "scripts": {
@@ -17,7 +18,9 @@
   },
   "homepage": "https://github.com/nyu-csci-ua-0467-001-002-spring-2025/final-project-Khushi140303#readme",
   "dependencies": {
+    "axios": "^1.9.0",
     "bcrypt": "^5.1.1",
+    "config": "^3.3.12",
     "dotenv": "^16.5.0",
     "ejs": "^3.1.10",
     "express": "^4.21.2",
