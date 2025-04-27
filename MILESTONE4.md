@@ -15,11 +15,11 @@ https://github.com/nyu-csci-ua-0467-001-002-spring-2025/final-project-deployment
 
 URL for deployed site 
 ---
-https://stunning-trout-69rg7r76xq7wc44j5-3000.app.github.dev
+https://symmetrical-space-capybara-r4rgvrv95xjqhxxxp-3000.app.github.dev/
 
 URL for form 1 (from previous milestone) 
 ---
-https://stunning-trout-69rg7r76xq7wc44j5-3000.app.github.dev/
+https://symmetrical-space-capybara-r4rgvrv95xjqhxxxp-3000.app.github.dev/
 
 Special Instructions for Form 1
 ---
@@ -27,7 +27,7 @@ No login required. Visit the home page (`/`), fill out **Title**, **Genre**, and
 
 URL for form 2 (for current milestone)
 ---
-https://stunning-trout-69rg7r76xq7wc44j5-3000.app.github.dev/reviews
+https://symmetrical-space-capybara-r4rgvrv95xjqhxxxp-3000.app.github.dev/reviews
 
 Special Instructions for Form 2
 ---
@@ -38,7 +38,7 @@ Requires authentication.
 
 URL for form 3 (from previous milestone) 
 ---
-https://stunning-trout-69rg7r76xq7wc44j5-3000.app.github.dev/watchlist
+https://symmetrical-space-capybara-r4rgvrv95xjqhxxxp-3000.app.github.dev/watchlist
 
 Special Instructions for Form 3
 ---
