@@ -82,8 +82,6 @@ The following is the navigation flow of the MovieMate web application:
 - As a **user**, I can **add a movie to my watchlist**.
 - As a **user**, I can **view my watchlist**.
 - As a **user**, I can **submit a review and rating** for a movie.
-- As a **user**, I can **view movie details**, including aggregated ratings.
-- As a **user**, I can **receive movie recommendations** based on my watch history.
 
 ---
 ## Research Topics
