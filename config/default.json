@@ -1,6 +1,6 @@
 {
     "port": 3000,
-    "mongodbUri": "mongodb://localhost:27017",
+    "mongodbUri": "mongodb+srv://ka2653:YOer2WSH5t1peYsA@cluster0.qn4osf4.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",
     "sessionSecret": "supersecret",
     "omdbApiKey": "fd815ba2"
   }
