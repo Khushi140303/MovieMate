@@ -1,138 +1,107 @@
-# MovieMate
+<h1 align="center">MovieMate 🎬</h1>
+<p align="center">
+  <b>A full-stack movie discovery and review platform with authenticated watchlists and dynamic movie metadata.</b>
+</p>
 
-## Overview
-
-MovieMate is a web application that allows users to track and review movies they’ve watched. Users can add movies to their watchlist and receive personalized recommendations based on their viewing history.
-
-Users can:
-- Add movies to a **watchlist**.
-- Submit reviews with **ratings and comments**.
-- View movie details, including **aggregated ratings and reviews**.
+<p align="center">
+  <img src="https://img.shields.io/badge/Node.js-339933?style=flat&logo=nodedotjs&logoColor=white">
+  <img src="https://img.shields.io/badge/Express-000000?style=flat&logo=express&logoColor=white">
+  <img src="https://img.shields.io/badge/MongoDB-47A248?style=flat&logo=mongodb&logoColor=white">
+  <img src="https://img.shields.io/badge/Passport.js-34E27A?style=flat&logo=passport&logoColor=white">
+  <img src="https://img.shields.io/badge/Axios-5A29E4?style=flat&logo=axios&logoColor=white">
+</p>
 
 ---
 
+## What it does
 
+MovieMate lets users discover movies, build watchlists, and write reviews. The app fetches real-time movie metadata from the OMDb API and persists everything to MongoDB via Mongoose. Authentication is handled through Passport.js with hashed password storage and protected routes.
 
-## Data Model
+**Core flows:**
+- Search any movie by title and view aggregated reviews/ratings
+- Build a personal watchlist via referenced relationships
+- Submit ratings (1–5) and comment-based reviews
+- Register, log in, and access protected pages
 
-The application will store **Users, Movies, and Reviews**.
+---
 
-- Users can maintain a **watchlist** (via references).
-- Each movie can have **multiple reviews** (via references).
-- Reviews will store **ratings and user comments**.
+## Tech stack
 
-### **Sample Documents**
+| Layer | Technology |
+|---|---|
+| Backend | Node.js · Express |
+| Database | MongoDB (Mongoose ODM) |
+| Auth | Passport.js (hashed passwords, session-protected routes) |
+| External API | OMDb (Axios) |
+| Frontend | EJS templates · client-side form validation |
+| Tooling | ESLint · Dev Containers |
 
-#### **User Schema**
-```
+---
+
+## Data model
+
+The app stores three collections — **Users, Movies, and Reviews** — connected by referenced relationships.
+
+```js
+// User
 {
   username: "moviefan23",
   email: "user@email.com",
-  password: "hashed_password",
-  watchlist: ["movie_id_1", "movie_id_2"],
+  password: "<hashed>",
+  watchlist: [movie_id, ...]
 }
-```
 
-Movie Schema
-```
+// Movie
 {
   title: "Inception",
   genre: ["Sci-Fi", "Thriller"],
   year: 2010,
-  reviews: ["review_id_1", "review_id_2"]
+  reviews: [review_id, ...]
 }
-```
-Review Schema
-```
+
+// Review
 {
-  user: "user_id",
-  movie: "movie_id",
+  user: user_id,
+  movie: movie_id,
   rating: 4.5,
   comment: "Amazing movie with mind-blowing visuals!",
   timestamp: "2025-03-20T12:00:00Z"
 }
 ```
 
-## [Link to Commented First Draft Schema](db.mjs) 
-
-## Wireframes
-
-The following wireframes illustrate the key pages of MovieMate, showing the layout of major elements such as **search, watchlist, review submission, and movie recommendations**.
-
-![Wireframe](assets/wire_frame.png)
-
-📍 **View the full wireframes here:**  
-👉 [Click to view Wireframes on Canva](https://www.canva.com/design/DAGiUhEPfIU/OSabKO46q5uX66Lo5OgUHA/edit)
-
-
-## Site map
-
-The following is the navigation flow of the MovieMate web application:
-
-![Site Map](assets/Site_map.png)
-
-📍 **View the full site map here:**  
-👉 [Click to view the Site Map on Canva](https://www.canva.com/design/DAGiUeR7b58/0etIr9gKU9KshS5yhgeQuw/view?utm_content=DAGiUeR7b58&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h1307bcc5e2)
-
-## User Stories or Use Cases
-
-- As a **non-registered user**, I can **register an account**.
-- As a **registered user**, I can **log in**.
-- As a **user**, I can **search for a movie**.
-- As a **user**, I can **add a movie to my watchlist**.
-- As a **user**, I can **view my watchlist**.
-- As a **user**, I can **submit a review and rating** for a movie.
-
 ---
-## Research Topics
 
-For this project, I am researching and implementing **10 points worth of topics**:
+## What's interesting about this build
 
-### **(5 points) User Authentication**
-- **Library Used**: Passport.js
-- **Why?** Enables **secure user login & authentication**.
-- **Implementation Plan**:
-  - Users can **register and log in**.
-  - Passwords will be **hashed** before storing in the database.
-  - Pages requiring authentication will be **protected**.
+**Authentication is hashed end-to-end.** Passport.js handles login/registration, but passwords are hashed before they ever hit the database. Protected routes redirect unauthenticated users back to the login flow rather than exposing partial state.
 
-### **(4 points) Client-Side Form Validation**
-- **Why?** Ensures user inputs are **validated before submission**.
-- **Implementation Plan**:
-  - Prevents submission of **empty fields**.
-  - Displays **error messages** for invalid inputs.
-  - Example: Users **cannot submit a review without a rating**.
+**Client-side validation prevents bad submits.** Empty review fields, missing ratings, and malformed inputs are caught before the form posts, with inline error messaging.
 
-### **(3 points) Use Axios for Fetching Movie Data**
-- **Library Used**: Axios
-- **Why?** Simplifies API calls to fetch **real movie details** from OMDb API.
-- **Implementation Plan**:
-  - Use Axios to **fetch movie details** by title.
-  - Create an API function to request data from OMDb.
-  - Return JSON data to the frontend for **dynamic movie recommendations**.
+**OMDb integration via Axios** allows dynamic movie lookups — type a title, get back real metadata (cast, year, plot, poster), then attach reviews to the matched record rather than free-text duplicates.
 
 ---
 
-## [Link to Initial Main Project File](app.mjs) 
+## Run it locally
 
-[Main Page](./views/index.ejs)
-- This project is set up using **Express.js**.
-- Includes **package.json, app.mjs, models, and routes folders**.
+```bash
+git clone https://github.com/Khushi140303/MovieMate.git
+cd MovieMate
+npm install
 
----
-## Annotations / References Used
+# Set up .env with MongoDB URI and OMDb API key
+cp .env.example .env
 
-Below are the key references used in building MovieMate:
+# Test MongoDB connection
+node testMongoConnection.js
 
-1. [Passport.js Documentation](http://passportjs.org/docs) - Used for user authentication.
-2. [Express.js Documentation](https://expressjs.com/) - Used for setting up the backend and handling routes.
-3. [Mongoose Documentation](https://mongoosejs.com/) - Used for defining and interacting with MongoDB database schemas.
-4. [OMDb API](https://www.omdbapi.com/) - Used for fetching movie metadata for recommendations and search functionality.
-5. [Axios Documentation](https://axios-http.com/docs/intro) - Used for making API requests to fetch movie data dynamically.
-6. [ESLint Documentation](https://eslint.org/docs/latest/) - Used for code linting and ensuring clean JavaScript code.
+# Start the server
+node app.mjs
+```
 
-
-
-
+Visit `http://localhost:3000`.
 
 ---
+
+## Built for
+
+NYU CSCI-UA 467 — Applied Internet Technology
